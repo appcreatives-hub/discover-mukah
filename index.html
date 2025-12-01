@@ -22,7 +22,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Scroll perlahan bila tekan butang */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -42,7 +42,7 @@
             align-items: center;
             padding: 1rem 5%;
             background-color: rgba(18, 18, 18, 0.95);
-            position: sticky; /* Menu melekat kat atas */
+            position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(5px);
@@ -73,10 +73,10 @@
             color: var(--primary-gold);
         }
 
-        /* --- 3. HERO SECTION (Gambar Utama) --- */
+        /* --- 3. HERO SECTION --- */
         header {
             height: 90vh;
-            /* Placeholder Image - Sungai/Hutan */
+            /* Gambar Background Sungai/Hutan */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -218,7 +218,6 @@
             margin-bottom: 5rem;
         }
 
-        /* Selang-selikan kedudukan gambar dan teks */
         .info-block:nth-child(even) {
             flex-direction: row-reverse;
         }
@@ -259,7 +258,7 @@
             text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
 
-        /* Warna Gradient sebagai ganti gambar */
+        /* Visual Placeholders (Gradient Colors) */
         .vis-kaul { background: linear-gradient(45deg, #FF512F, #DD2476); }
         .vis-jerunei { background: linear-gradient(45deg, #1f4037, #99f2c8); }
         .vis-museum { background: linear-gradient(45deg, #8E2DE2, #4A00E0); }
@@ -273,7 +272,7 @@
             border-bottom: 2px solid var(--primary-gold);
         }
 
-        /* --- 7. 3D MODELS SECTION (Sketchfab) --- */
+        /* --- 7. 3D MODELS SECTION (Sketchfab Style) --- */
         .model-section {
             padding: 5rem 5%;
             background-color: #fff;
@@ -302,10 +301,18 @@
             color: var(--dark-bg);
         }
 
+        /* Wrapper untuk pastikan iframe responsif */
+        .sketchfab-embed-wrapper {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Tinggi tingkap 3D */
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        
         .sketchfab-embed-wrapper iframe {
             width: 100%;
-            height: 400px;
-            border-radius: 5px;
+            height: 100%;
             border: none;
         }
 
@@ -321,13 +328,13 @@
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Menu disembunyikan di mobile untuk demo */
+            .nav-links { display: none; }
             .info-block, .info-block:nth-child(even) {
                 flex-direction: column;
                 gap: 2rem;
             }
             .info-visual { width: 100%; height: 250px; }
-            .sketchfab-embed-wrapper iframe { height: 300px; }
+            .sketchfab-embed-wrapper { height: 300px; }
         }
     </style>
 </head>
@@ -435,8 +442,7 @@
             <div class="model-card">
                 <h3>Traditional Female Attire</h3>
                 <div class="sketchfab-embed-wrapper">
-                    <iframe 
-                        title="Melanau Female Traditional Costume" 
+                    <iframe title="Pakaian Melanau Wanita" 
                         frameborder="0" 
                         allowfullscreen 
                         mozallowfullscreen="true" 
@@ -446,34 +452,23 @@
                         execution-while-out-of-viewport 
                         execution-while-not-rendered 
                         web-share 
-                        src="https://sketchfab.com/models/0d63234972f74618821990422964177d/embed">
+                        width="100%" 
+                        height="100%" 
+                        src="https://sketchfab.com/models/13d73e72925242559254f4df7e54543d/embed">
                     </iframe>
                 </div>
-                <p style="font-size:0.8rem; margin-top:10px; color:#666;">
-                    View on <a href="https://skfb.ly/pCnKB" target="_blank" style="color:var(--primary-gold); font-weight:bold;">Sketchfab</a>
-                </p>
             </div>
     
             <div class="model-card">
                 <h3>Traditional Male Attire</h3>
                 <div class="sketchfab-embed-wrapper">
-                    <iframe 
-                        title="Melanau Male Traditional Costume" 
-                        frameborder="0" 
-                        allowfullscreen 
-                        mozallowfullscreen="true" 
-                        webkitallowfullscreen="true" 
+                    <iframe title="pakaian melanau lelaki" frameborder="0" 
+                        width="100%" height="100%"
+                        allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" 
                         allow="autoplay; fullscreen; xr-spatial-tracking" 
-                        xr-spatial-tracking 
-                        execution-while-out-of-viewport 
-                        execution-while-not-rendered 
-                        web-share 
-                        src="https://sketchfab.com/models/05822b37805149e99279092497880918/embed">
+                        src="https://sketchfab.com/models/1a3595ae1a134ca3aa61d9717951f0f2/embed">
                     </iframe>
                 </div>
-                <p style="font-size:0.8rem; margin-top:10px; color:#666;">
-                    View on <a href="https://skfb.ly/pCnKw" target="_blank" style="color:var(--primary-gold); font-weight:bold;">Sketchfab</a>
-                </p>
             </div>
     
         </div>
