@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover Mukah | The Heart of Melanau Culture</title>
     <style>
-        /* --- 1. GLOBAL STYLES --- */
+        /* --- 1. GLOBAL STYLES (Tema Warna) --- */
         :root {
-            --primary-gold: #D4AF37;
-            --dark-bg: #121212;
-            --light-bg: #f4f4f4;
+            --primary-gold: #D4AF37; /* Warna Emas */
+            --dark-bg: #121212;      /* Hitam Gelap */
+            --light-bg: #f4f4f4;     /* Putih Kelabu */
             --text-dark: #333;
             --text-light: #fff;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,7 +22,7 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Scroll perlahan bila tekan butang */
         }
 
         body {
@@ -35,17 +35,18 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
 
-        /* --- 2. NAVIGATION --- */
+        /* --- 2. NAVIGATION BAR --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
             background-color: rgba(18, 18, 18, 0.95);
-            position: sticky;
+            position: sticky; /* Menu melekat kat atas */
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--primary-gold);
         }
 
         .logo {
@@ -72,9 +73,10 @@
             color: var(--primary-gold);
         }
 
-        /* --- 3. HERO SECTION --- */
+        /* --- 3. HERO SECTION (Gambar Utama) --- */
         header {
             height: 90vh;
+            /* Placeholder Image - Sungai/Hutan */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -92,6 +94,7 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 3px;
+            text-shadow: 2px 2px 5px black;
         }
 
         header h2 {
@@ -149,7 +152,7 @@
             font-size: 1.1rem;
         }
 
-        /* --- 5. 360 AR GRID --- */
+        /* --- 5. 360 AR GRID SECTION --- */
         .vr-section {
             background-color: var(--dark-bg);
             color: var(--text-light);
@@ -194,6 +197,7 @@
             border: 1px solid var(--text-light);
             border-radius: 5px;
             font-size: 0.9rem;
+            color: white;
         }
 
         .card-btn:hover {
@@ -202,7 +206,7 @@
             color: var(--dark-bg);
         }
 
-        /* --- 6. HERITAGE & INFO (Alternating Layout) --- */
+        /* --- 6. HERITAGE INFO BLOCKS --- */
         .info-section {
             padding: 5rem 5%;
         }
@@ -214,6 +218,7 @@
             margin-bottom: 5rem;
         }
 
+        /* Selang-selikan kedudukan gambar dan teks */
         .info-block:nth-child(even) {
             flex-direction: row-reverse;
         }
@@ -245,7 +250,6 @@
             background-color: #ddd;
             border-radius: 15px;
             overflow: hidden;
-            /* Placeholder Gradients since we don't have images */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -255,11 +259,10 @@
             text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
 
-        /* Visual Placeholders */
+        /* Warna Gradient sebagai ganti gambar */
         .vis-kaul { background: linear-gradient(45deg, #FF512F, #DD2476); }
         .vis-jerunei { background: linear-gradient(45deg, #1f4037, #99f2c8); }
         .vis-museum { background: linear-gradient(45deg, #8E2DE2, #4A00E0); }
-        .vis-attire { background: linear-gradient(45deg, #000000, #434343); }
         .vis-food { background: linear-gradient(45deg, #F09819, #EDDE5D); }
 
         .ar-link {
@@ -270,7 +273,43 @@
             border-bottom: 2px solid var(--primary-gold);
         }
 
-        /* --- 7. FOOTER --- */
+        /* --- 7. 3D MODELS SECTION (Sketchfab) --- */
+        .model-section {
+            padding: 5rem 5%;
+            background-color: #fff;
+            text-align: center;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .model-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .model-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-bg);
+        }
+
+        .sketchfab-embed-wrapper iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* --- 8. FOOTER --- */
         footer {
             background-color: var(--dark-bg);
             color: #777;
@@ -282,12 +321,13 @@
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplified for demo */
+            .nav-links { display: none; } /* Menu disembunyikan di mobile untuk demo */
             .info-block, .info-block:nth-child(even) {
                 flex-direction: column;
                 gap: 2rem;
             }
             .info-visual { width: 100%; height: 250px; }
+            .sketchfab-embed-wrapper iframe { height: 300px; }
         }
     </style>
 </head>
@@ -297,8 +337,9 @@
         <div class="logo">Mukah Heritage</div>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#vr-experience">360° View</a>
+            <a href="#vr-experience">360° VR</a>
             <a href="#heritage">Heritage</a>
+            <a href="#3d-attire">3D Attire</a>
             <a href="#gastronomy">Food</a>
         </div>
     </nav>
@@ -381,9 +422,61 @@
                 <a href="https://share.eon-xr.com/lesson/239/1060040" class="ar-link">Museum Tour &rarr;</a> <br>
                 <a href="https://share.eon-xr.com/lesson/239/1058151" class="ar-link">View Attire Lesson &rarr;</a>
             </div>
-            <div class="info-visual vis-attire">Cultural Attire</div>
+            <div class="info-visual vis-museum">Museum Artifacts</div>
         </div>
+    </section>
 
+    <section id="3d-attire" class="model-section">
+        <h2 class="section-title">Virtual 3D Attire Gallery</h2>
+        <p>Interact with the traditional Melanau attire in full 3D detail. Drag to rotate.</p>
+    
+        <div class="model-grid">
+            
+            <div class="model-card">
+                <h3>Traditional Female Attire</h3>
+                <div class="sketchfab-embed-wrapper">
+                    <iframe 
+                        title="Melanau Female Traditional Costume" 
+                        frameborder="0" 
+                        allowfullscreen 
+                        mozallowfullscreen="true" 
+                        webkitallowfullscreen="true" 
+                        allow="autoplay; fullscreen; xr-spatial-tracking" 
+                        xr-spatial-tracking 
+                        execution-while-out-of-viewport 
+                        execution-while-not-rendered 
+                        web-share 
+                        src="https://sketchfab.com/models/0d63234972f74618821990422964177d/embed">
+                    </iframe>
+                </div>
+                <p style="font-size:0.8rem; margin-top:10px; color:#666;">
+                    View on <a href="https://skfb.ly/pCnKB" target="_blank" style="color:var(--primary-gold); font-weight:bold;">Sketchfab</a>
+                </p>
+            </div>
+    
+            <div class="model-card">
+                <h3>Traditional Male Attire</h3>
+                <div class="sketchfab-embed-wrapper">
+                    <iframe 
+                        title="Melanau Male Traditional Costume" 
+                        frameborder="0" 
+                        allowfullscreen 
+                        mozallowfullscreen="true" 
+                        webkitallowfullscreen="true" 
+                        allow="autoplay; fullscreen; xr-spatial-tracking" 
+                        xr-spatial-tracking 
+                        execution-while-out-of-viewport 
+                        execution-while-not-rendered 
+                        web-share 
+                        src="https://sketchfab.com/models/05822b37805149e99279092497880918/embed">
+                    </iframe>
+                </div>
+                <p style="font-size:0.8rem; margin-top:10px; color:#666;">
+                    View on <a href="https://skfb.ly/pCnKw" target="_blank" style="color:var(--primary-gold); font-weight:bold;">Sketchfab</a>
+                </p>
+            </div>
+    
+        </div>
     </section>
 
     <section id="gastronomy" style="background-color: #fff8e1; padding: 5rem 5%;">
