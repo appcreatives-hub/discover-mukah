@@ -5,373 +5,409 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover Mukah | The Heart of Melanau Culture</title>
     <style>
-        /* --- Reset & Base Styles --- */
+        /* --- 1. GLOBAL STYLES --- */
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-bg: #121212;
+            --light-bg: #f4f4f4;
+            --text-dark: #333;
+            --text-light: #fff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-main);
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
 
-        /* --- Navigation --- */
-        header {
-            background-color: #1a1a1a;
-            color: #d4af37; /* Gold color */
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* --- 2. NAVIGATION --- */
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 5%;
+            background-color: rgba(18, 18, 18, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        nav ul {
-            list-style: none;
+        .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 2rem;
         }
 
-        nav a {
-            color: #fff;
-            transition: color 0.3s;
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
-        nav a:hover {
-            color: #d4af37;
+        .nav-links a:hover {
+            color: var(--primary-gold);
         }
 
-        /* --- Hero Section --- */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Placeholder image of a river/nature */
+        /* --- 3. HERO SECTION --- */
+        header {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #d4af37;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            background-color: #d4af37;
-            color: #1a1a1a;
-            padding: 15px 30px;
-            font-weight: bold;
-            border-radius: 5px;
+        header h1 {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
             text-transform: uppercase;
-            transition: background 0.3s;
+            letter-spacing: 3px;
         }
 
-        .cta-button:hover {
-            background-color: #b5952f;
+        header h2 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 800px;
         }
 
-        /* --- Sections Generic --- */
-        section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .cta-btn {
+            padding: 15px 40px;
+            background-color: var(--primary-gold);
+            color: var(--dark-bg);
+            font-weight: bold;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-gold);
         }
 
-        h2 {
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+        }
+
+        /* --- 4. INTRO SECTION --- */
+        .intro {
+            padding: 5rem 10%;
             text-align: center;
+            background: white;
+        }
+
+        .section-title {
             font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #2c3e50;
-            border-bottom: 3px solid #d4af37;
+            margin-bottom: 1rem;
+            color: var(--dark-bg);
+            position: relative;
             display: inline-block;
-            padding-bottom: 10px;
         }
 
-        .section-header-container {
-            text-align: center;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-gold);
+            margin: 10px auto 0;
         }
 
-        /* --- 360 Grid --- */
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* --- 5. 360 AR GRID --- */
+        .vr-section {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 5rem 5%;
+        }
+
+        .vr-section .section-title {
+            color: var(--text-light);
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            gap: 30px;
+            margin-top: 3rem;
         }
 
-        .card-360 {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 30px;
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
             text-align: center;
-            border: 1px solid #eee;
             transition: transform 0.3s;
         }
 
-        .card-360:hover {
-            transform: translateY(-5px);
-            border-color: #d4af37;
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
         }
 
-        .card-360 h3 {
-            margin-bottom: 15px;
-            color: #1a1a1a;
+        .card h3 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .btn-outline {
+        .card-btn {
             display: inline-block;
-            border: 2px solid #1a1a1a;
+            margin-top: 1rem;
             padding: 10px 20px;
-            margin-top: 10px;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s;
+            border: 1px solid var(--text-light);
+            border-radius: 5px;
+            font-size: 0.9rem;
         }
 
-        .btn-outline:hover {
-            background-color: #1a1a1a;
-            color: white;
+        .card-btn:hover {
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--dark-bg);
         }
 
-        /* --- Heritage & Content Cards --- */
-        .content-card {
+        /* --- 6. HERITAGE & INFO (Alternating Layout) --- */
+        .info-section {
+            padding: 5rem 5%;
+        }
+
+        .info-block {
             display: flex;
-            flex-direction: column; /* Mobile first */
-            background: white;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 5rem;
         }
 
-        @media(min-width: 768px) {
-            .content-card {
-                flex-direction: row;
-            }
+        .info-block:nth-child(even) {
+            flex-direction: row-reverse;
         }
 
-        .card-text {
-            padding: 30px;
-            flex: 2;
-        }
-
-        .card-image-placeholder {
-            background-color: #ddd;
+        .info-text {
             flex: 1;
-            min-height: 200px;
+        }
+
+        .info-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-bg);
+        }
+
+        .info-text .tag {
+            display: inline-block;
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-radius: 3px;
+        }
+
+        .info-visual {
+            flex: 1;
+            height: 350px;
+            background-color: #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+            /* Placeholder Gradients since we don't have images */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
-            font-weight: bold;
-        }
-        
-        /* Simulating images with gradients for visual appeal without external assets */
-        .img-kaul { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
-        .img-jerunei { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
-        .img-museum { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
-        .img-food { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
-
-        .tag {
-            background-color: #d4af37;
             color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
             font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Visual Placeholders */
+        .vis-kaul { background: linear-gradient(45deg, #FF512F, #DD2476); }
+        .vis-jerunei { background: linear-gradient(45deg, #1f4037, #99f2c8); }
+        .vis-museum { background: linear-gradient(45deg, #8E2DE2, #4A00E0); }
+        .vis-attire { background: linear-gradient(45deg, #000000, #434343); }
+        .vis-food { background: linear-gradient(45deg, #F09819, #EDDE5D); }
+
+        .ar-link {
             display: inline-block;
-            margin-bottom: 10px;
+            margin-top: 15px;
+            color: var(--primary-gold);
+            font-weight: bold;
+            border-bottom: 2px solid var(--primary-gold);
         }
 
-        /* --- Footer --- */
+        /* --- 7. FOOTER --- */
         footer {
-            background-color: #1a1a1a;
-            color: #bbb;
+            background-color: var(--dark-bg);
+            color: #777;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
+            padding: 2rem;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            margin: 0 10px;
-            color: #d4af37;
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+            .info-block, .info-block:nth-child(even) {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .info-visual { width: 100%; height: 250px; }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="logo">Mukah Heritage</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#vr-experience">360° View</a>
+            <a href="#heritage">Heritage</a>
+            <a href="#gastronomy">Food</a>
+        </div>
+    </nav>
+
     <header>
-        <div class="logo">DISCOVER MUKAH</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#virtual">360° View</a></li>
-                <li><a href="#heritage">Heritage</a></li>
-                <li><a href="#food">Food</a></li>
-            </ul>
-        </nav>
+        <h1>Discover Mukah</h1>
+        <h2>Experience the Heart of Melanau Heritage Through Augmented Reality</h2>
+        <a href="#vr-experience" class="cta-btn">Start to Explore</a>
     </header>
 
-    <div id="home" class="hero">
-        <h1>The Heart of Melanau Culture</h1>
-        <p>Explore the rich traditions, exotic delicacies, and sacred sites of Mukah through an immersive AR experience.</p>
-        <a href="#virtual" class="cta-button">Start to Explore</a>
-    </div>
+    <section id="about" class="intro">
+        <h2 class="section-title">The Heart of Melanau Culture</h2>
+        <p>
+            Often regarded as a paradise for food lovers, Mukah offers an array of exotic delicacies 
+            such as <strong>Umai</strong> and <strong>Sago</strong>. 
+            One of the most vibrant highlights of the year is the <strong>Kaul Festival</strong>, 
+            an annual celebration showcasing traditional boat races, rituals, and authentic local cuisine.
+        </p>
+    </section>
 
-    <section id="virtual">
-        <div class="section-header-container">
-            <h2>360° Tourism Experience</h2>
-            <p>Discover Mukah through cutting-edge Augmented Reality technology.</p>
+    <section id="vr-experience" class="vr-section">
+        <div style="text-align: center;">
+            <h2 class="section-title">360° Tourism Experience</h2>
+            <p>Discover Mukah through cutting-edge AR technology. Bring heritage to life.</p>
         </div>
-        
+
         <div class="grid-container">
-            <div class="card-360">
+            <div class="card">
                 <h3>Pesta Kaul Mukah</h3>
                 <p>Experience the festival atmosphere.</p>
-                <a href="https://tsmrtczk95.github.io/360_pestakaulmukah/" target="_blank" class="btn-outline">Launch 360°</a>
+                <a href="https://tsmrtczk95.github.io/360_pestakaulmukah/" target="_blank" class="card-btn">Launch 360°</a>
             </div>
-            <div class="card-360">
-                <h3>Tapak Kaul</h3>
-                <p>Explore the festival grounds.</p>
-                <a href="https://tsmrtczk95.github.io/360_tapakpestakaul/" target="_blank" class="btn-outline">Launch 360°</a>
-            </div>
-            <div class="card-360">
-                <h3>Jerunei Sungai Teloh</h3>
-                <p>Visit the sacred heritage site.</p>
-                <a href="https://tsmrtczk95.github.io/360_sungaiteloh/" target="_blank" class="btn-outline">Launch 360°</a>
-            </div>
-            <div class="card-360">
-                <h3>Sapan Puloh Muzium</h3>
-                <p>Walk through the virtual museum.</p>
-                <a href="https://tsmrtczk95.github.io/360_sapanpuloh/" target="_blank" class="btn-outline">Launch 360°</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="heritage">
-        <div class="section-header-container">
-            <h2>Melanau Heritage</h2>
-        </div>
-
-        <div class="content-card">
-            <div class="card-image-placeholder img-kaul">
-                <span>[Image: Kaul Festival]</span>
-            </div>
-            <div class="card-text">
-                <span class="tag">Festival</span>
+            <div class="card">
                 <h3>Tapak Kaul Mukah</h3>
-                <p>A vibrant coastal site home to the annual Melanau Kaul Festival. It showcases unique cultural rituals like Tibau (Giant Swing) and Serahang, traditional performances, and local cuisine.</p>
-                <br>
-                <a href="https://share.eon-xr.com/lesson/239/1058095" target="_blank" class="btn-outline">Learn Lesson</a>
-                <a href="https://tsmrtczk95.github.io/mukahxr_tibau_anim/" target="_blank" class="btn-outline">View Tibau AR</a>
+                <p>Virtual tour of the festival site.</p>
+                <a href="https://tsmrtczk95.github.io/360_tapakpestakaul/" target="_blank" class="card-btn">Launch 360°</a>
             </div>
-        </div>
-
-        <div class="content-card">
-            <div class="card-image-placeholder img-jerunei">
-                <span>[Image: Jerunei Pole]</span>
+            <div class="card">
+                <h3>Jerunei Sungai Teloh</h3>
+                <p>Explore the historic burial pole site.</p>
+                <a href="https://tsmrtczk95.github.io/360_sungaiteloh/" target="_blank" class="card-btn">Launch 360°</a>
             </div>
-            <div class="card-text">
-                <span class="tag">History</span>
-                <h3>Jerunei Sungai Misan</h3>
-                <p>A historical burial site featuring a <em>jerunei</em> pole carved from belian wood. These poles housed the remains of noble leaders and sacred offerings. Although the pole no longer stands, the site remains spiritually significant.</p>
-                <br>
-                <a href="https://tsmrtczk95.github.io/mukahxr_jeruneisgmisan/" target="_blank" class="btn-outline">View AR Model</a>
-                <a href="https://share.eon-xr.com/lesson/239/1029703" target="_blank" class="btn-outline">Heritage Experience</a>
-            </div>
-        </div>
-
-        <div class="content-card">
-            <div class="card-image-placeholder img-museum">
-                <span>[Image: Traditional Attire/Artifacts]</span>
-            </div>
-            <div class="card-text">
-                <span class="tag">Culture</span>
-                <h3>Sapan Puloh & Traditional Attire</h3>
-                <p>The Mini Museum Sapan Puloh preserves artifacts like Terendak hats and fishing tools. Learn about the elegant traditional attire of Melanau women, featuring black velvet, gold ornaments, and songket sarongs.</p>
-                <br>
-                <a href="https://share.eon-xr.com/lesson/239/1060040" target="_blank" class="btn-outline">Visit Museum Lesson</a>
-                <a href="https://share.eon-xr.com/lesson/239/1058151" target="_blank" class="btn-outline">View Attire Lesson</a>
+            <div class="card">
+                <h3>Sapan Puloh Muzium</h3>
+                <p>Step inside the cultural museum.</p>
+                <a href="https://tsmrtczk95.github.io/360_sapanpuloh/" target="_blank" class="card-btn">Launch 360°</a>
             </div>
         </div>
     </section>
 
-    <section id="food">
-        <div class="section-header-container">
-            <h2>Gastronomy</h2>
+    <section id="heritage" class="info-section">
+        
+        <div class="info-block">
+            <div class="info-text">
+                <span class="tag">Festival</span>
+                <h3>Tapak Kaul Mukah & Tibau</h3>
+                <p>Home to the annual Melanau Kaul Festival, this vibrant coastal site showcases unique rituals like <em>Serahang</em>. A major highlight is the <strong>Tibau</strong>, a traditional giant swing built from tall wooden poles and rattan, famously played during the festival.</p>
+                <a href="https://share.eon-xr.com/lesson/239/1058095" class="ar-link">Learn Lesson &rarr;</a> <br>
+                <a href="https://tsmrtczk95.github.io/mukahxr_tibau_anim/" class="ar-link">View Tibau Animation &rarr;</a>
+            </div>
+            <div class="info-visual vis-kaul">Kaul Festival</div>
         </div>
 
-        <div class="grid-container">
-            <div class="card-360">
-                <div class="card-image-placeholder img-food" style="height: 150px; margin-bottom: 20px; border-radius: 5px;"></div>
-                <h3>Melanau Delicacies</h3>
-                <p>Discover the nutritional value of Sago, seafood, and tropical fruits essential to Mukah's cuisine.</p>
-                <a href="https://share.eon-xr.com/lesson/239/1060086" target="_blank" class="btn-outline">Learn More</a>
+        <div class="info-block">
+            <div class="info-text">
+                <span class="tag">Ancient History</span>
+                <h3>The Legend of Jerunei</h3>
+                <p>The <strong>Jerunei Sungai Misan</strong> and <strong>Sungai Teloh</strong> sites preserve the history of Melanau burial poles. Carved from Belian wood, these poles once housed noble leaders and sacred offerings. Though some no longer stand, their stories of spiritual protection and the <em>ipok</em> ceremonies remain alive.</p>
+                <a href="https://tsmrtczk95.github.io/mukahxr_jeruneisgmisan/" class="ar-link">View Jerunei AR Model &rarr;</a> <br>
+                <a href="https://share.eon-xr.com/lesson/239/1029703" class="ar-link">Heritage Experience &rarr;</a>
             </div>
-            
-            <div class="card-360">
-                <div class="card-image-placeholder img-food" style="height: 150px; margin-bottom: 20px; border-radius: 5px; background: linear-gradient(135deg, #e6b980 0%, #eacda3 100%);"></div>
+            <div class="info-visual vis-jerunei">Sacred Jerunei</div>
+        </div>
+
+        <div class="info-block">
+            <div class="info-text">
+                <span class="tag">Culture & Fashion</span>
+                <h3>Sapan Puloh & Traditional Attire</h3>
+                <p>The <strong>Sapan Puloh Mini Museum</strong> preserves artifacts like <em>Terendak</em> hats and the <em>Tall House</em>. Discover the elegance of Melanau women's attire: black velvet blouses with <em>kepih dada</em> (chest ornaments), gold necklaces, and <em>songket</em> sarongs.</p>
+                <a href="https://share.eon-xr.com/lesson/239/1060040" class="ar-link">Museum Tour &rarr;</a> <br>
+                <a href="https://share.eon-xr.com/lesson/239/1058151" class="ar-link">View Attire Lesson &rarr;</a>
+            </div>
+            <div class="info-visual vis-attire">Cultural Attire</div>
+        </div>
+
+    </section>
+
+    <section id="gastronomy" style="background-color: #fff8e1; padding: 5rem 5%;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 class="section-title">Melanau Gastronomy</h2>
+            <p>A culinary adventure awaits the brave and the hungry.</p>
+        </div>
+
+        <div class="info-block">
+            <div class="info-visual vis-food">Ulat Sago</div>
+            <div class="info-text">
+                <span class="tag">Exotic Delicacy</span>
                 <h3>Ulat Sago (Sago Worms)</h3>
-                <p>Creamy, rich in protein, and a local favorite. The larvae of the red palm weevil found in sago trunks.</p>
-                <a href="https://tsmrtczk95.github.io/mukahxr_sagoworms/" target="_blank" class="btn-outline">View AR Worm</a>
+                <p>For the adventurous, <strong>Ulat Sago</strong> is a must-try. These are the larvae of the red palm weevil found in decaying sago trunks. Creamy, soft-bodied, and rich in protein and healthy fats, they are a traditional superfood.</p>
+                <p>Learn more about essential ingredients like sago, seafood, and tropical fruits that define Mukah's kitchen.</p>
+                <a href="https://tsmrtczk95.github.io/mukahxr_sagoworms/" class="ar-link">View Ulat Sago AR &rarr;</a> <br>
+                <a href="https://share.eon-xr.com/lesson/239/1060086" class="ar-link">Melanau Delicacies Lesson &rarr;</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Mukah Tourism. Preserving Heritage Through Technology.</p>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
-        </div>
+        <p>&copy; 2024 Discover Mukah. Preserving Heritage Through Technology.</p>
     </footer>
 
-    <script>
-        // Simple Smooth Scroll script for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
-
 </html>
